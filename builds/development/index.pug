@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Legend of the Fallen Warrior
+        link(rel="stylesheet", href="css/bootstrap.css")
+        link(rel="stylesheet", href="css/font-awesome.css")
+        script(src="libs/jquery.js")
+        script(src="libs/bootstrap.js")
+        script(src="libs/xls.js")
+        script(src="libs/vue.js")
+    body
+        div
+            span#app
+                p {{ message }}
+            span#app-2(v-bind:title="message")
+                p Hover over me
+            span#app-3
+                p(v-if="seen") Now you see me
+            span#app-4
+                ol
+                    li(v-for="todo in todos")
+                        | {{ todo.text }}
+            span#app-5
+                p {{ message }}
+                button(v-on:click="reverseMessage", v-bind:disabled="isVisible") Press me
+            span#app-6
+                p {{ message }}
+                input(v-model="message")
+            span#app-7
+                ol
+                    todo-item(v-for="item in items", v-bind:todo="item", v-bind:key="item.id")
+
+
+    script(src="js/app.js")
